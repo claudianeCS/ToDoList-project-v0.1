@@ -53,6 +53,10 @@ h4 {
 	font-weight: 700;
 	margin-bottom: 0.5rem;
 }
+.greeting{
+	display: flex;
+	justify-content: space-between;
+}
 
 .greeting .title {
 	display: flex;
@@ -62,6 +66,17 @@ h4 {
 	margin-left: 0.5rem;
 	flex: 1 1 0%;
 	min-width: 0;
+}
+.greeting .exit{
+	background-color: var(--danger);
+	padding: 0.5rem;
+	border-radius: 0.25rem;
+	color: #FFF;
+	cursor: pointer;
+	transition: 0.2s ease-in-out;
+}
+.greeting .exit:hover{
+	opacity: 0.75;
 }
 
 .greeting .title, 
@@ -101,8 +116,15 @@ h4 {
 	border-radius: 0.5rem;
 	cursor: pointer;
 }
+.text-element{
+	margin: 0 !important;
+	font-size: 1.4em !important;
+	cursor: pointer;
+}
+.create-todo .options label:hover{
+	box-shadow: var(--business-glow) !important;
+}
 
-input[type="radio"],
 input[type="checkbox"] {
 	display: none;
 }
