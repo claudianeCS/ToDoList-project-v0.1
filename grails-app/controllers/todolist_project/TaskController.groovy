@@ -7,6 +7,7 @@ class TaskController {
 
     def index() {
 
+
         def taskList = Task.list(params)
         def task = new Task()
         [taskInstanceCreated: task, taskInstanceList: taskList]
@@ -19,16 +20,20 @@ class TaskController {
             notFound()
             return
         }
+
+        def user = User.get(session.usuario)
+        println(user)
+        taskInstance.usuario = user
+
         if (taskInstance.hasErrors()) {
-            render "Error no nome de usuario", status: 500
+            render "Error ao salvar a tarefa", status: 500
             return
         }
 
         taskInstance.save flush:true
 
-        render(view: "index", model: [taskInstance : taskInstance])
-
     }
+
 
     protected void notFound() {
         request.withFormat {

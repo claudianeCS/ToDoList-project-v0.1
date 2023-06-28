@@ -1,6 +1,7 @@
 
 <%@ page import="todolist_project.User" %>
 <!DOCTYPE html>
+
 <html>
 	<head>
 		<meta charset="UTF-8">
@@ -15,10 +16,12 @@
 			<h1>To Do List</h1>
 			<p>Escreva suas anotações e não esqueça.</p>
 		</div>
+		<p>${sessao}</p>
 		<div class="name-user">
 			<g:form controller="user" action="save">
-				<label for="nome">Digite seu nome:</label>
-				<g:textField name="nome" value="${userIntance?.nome}"/>
+				<g:textField name="nome" value="${userIntance?.nome}" placeholder="Digite seu nome"/>
+				<g:textField name="email" value="${userIntance?.email}" placeholder="Email"/>
+				<g:passwordField name="password" value="${userIntance?.password}" placeholder="Senha"/>
 				
 				<g:submitButton name="entrar" value="${message(code: 'default.enviar.button', default: 'Entrar')}"/>
 			</g:form>

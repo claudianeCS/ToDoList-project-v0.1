@@ -16,11 +16,12 @@
 </head>
 <body>
 <main class="app">
+
     <section class="greeting">
         <h2 class="title">
-            Olá como vai,&ensp;<p>${ userIntanceName?.nome}</p>.
+            Olá como vai,<p class="name-text">${userIntanceName?.nome}</p>.
         </h2>
-        <button class="sair">Sair</button>
+        <button class="exit">Sair</button>
     </section>
     <section class="create-todo">
         <h3>CREATE A TODOLIST</h3>
@@ -44,7 +45,7 @@
                     </div>
 
                     <div class="actions">
-                        <button class="edit">Editar</button>
+                        <button class="edit" onclick="${createLink(controller: 'task', action: 'edit')}" >Editar</button>
                         <button class="delete">Deletar</button>
                     </div>
                %{-- </g:each>--}%

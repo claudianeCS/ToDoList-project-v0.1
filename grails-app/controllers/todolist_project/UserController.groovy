@@ -1,6 +1,6 @@
 package todolist_project
 
-
+import javax.servlet.http.HttpSession
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
@@ -15,12 +15,21 @@ class UserController {
         [userIntance: user]
     }
 
+
     @Transactional
     def save(User userInstance) {
         if (userInstance == null) {
             notFound()
             return
         }
+
+
+   /*     def users = User.porNome(userInstance?.nome).list()
+        if (users){
+            users.each {user ->
+                user.delete(flush: true)
+            }
+        }*/
 
         if (userInstance.hasErrors()) {
             render "Error no nome de usuario", status: 500
@@ -29,9 +38,24 @@ class UserController {
 
         userInstance.save flush:true
 
+        if (userInstance){
+            session.setAttribute("usuario", userInstance?.id)
+            println("Sucesso!")
+        }
+
         render( view: "/task/index", model: [userIntanceName: userInstance])
     }
 
+
+    protected void notFound() {
+        request.withFormat {
+            form multipartForm {
+                flash.message = message(code: 'default.not.found.message', args: [message(code: 'teste.label', default: 'Teste'), params.id])
+                redirect action: "index", method: "GET"
+            }
+            '*'{ render status: NOT_FOUND }
+        }
+    }
 
 
 }
