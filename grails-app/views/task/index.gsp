@@ -5,7 +5,7 @@
   Time: 16:10
 --%>
 
-<%@ page import="todolist_project.User" contentType="text/html;charset=UTF-8" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -18,14 +18,13 @@
 <main class="app">
     <section class="greeting">
         <h2 class="title">
-            Olá como vai,&ensp;<p>${userIntanceName?.nome}</p>.
+            Olá como vai,&ensp;<p>${ userIntanceName?.nome}</p>.
         </h2>
         <button class="sair">Sair</button>
     </section>
     <section class="create-todo">
         <h3>CREATE A TODOLIST</h3>
         <g:form controller="task" action="save">
-
             <g:render template="/task/create" model="[taskInstanceCreated : taskInstanceCreated]"/>
             <g:submitButton name="adicionar" value="Adicionar"/>
         </g:form>
