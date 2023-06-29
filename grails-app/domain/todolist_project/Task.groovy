@@ -4,8 +4,7 @@ class Task {
 
     User usuario
     String tarefa
-    Boolean pessoal
-    Boolean negocio
+    String categoria
 
     static constraints = {
         tarefa(nullable: true)

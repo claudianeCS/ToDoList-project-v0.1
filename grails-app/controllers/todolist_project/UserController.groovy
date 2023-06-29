@@ -28,8 +28,15 @@ class UserController {
         }
 
         userInstance.save flush:true
+        usuarioSessao(userInstance?.id)
 
         render( view: "/task/index", model: [userIntanceName: userInstance])
+    }
+
+    def usuarioSessao(Long id){
+        def user = User.get(id)
+        session['userId'] = user?.id
+        session['username'] = user?.nome
     }
 
 

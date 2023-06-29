@@ -12,21 +12,23 @@ class TaskController {
         [taskInstanceCreated: task, taskInstanceList: taskList]
     }
 
-
     @Transactional
     def save(Task taskInstance){
         if (taskInstance == null){
             notFound()
             return
         }
+
+        taskInstance?.usuario = User.get(session['userId'])
+        taskInstance.save flush:true
+
         if (taskInstance.hasErrors()) {
             render "Error no nome de usuario", status: 500
             return
         }
 
-        taskInstance.save flush:true
-
-        render(view: "index", model: [taskInstance : taskInstance])
+        redirect(view: 'index')
+        /* [taskInstance : taskInstance]*/
 
     }
 
