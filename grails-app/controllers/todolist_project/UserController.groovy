@@ -44,7 +44,7 @@ class UserController {
             println("Sucesso!")
         }
 
-        render( view: "/task/index", model: [userIntanceName: userInstance])
+        redirect(controller: 'task', action: 'index')
     }
 
     def usuarioSessao(Long id){

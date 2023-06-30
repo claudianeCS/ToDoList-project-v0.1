@@ -5,6 +5,8 @@ import grails.transaction.Transactional
 @Transactional(readOnly = true)
 class TaskController {
 
+    static allowedMethods = [save: "POST"]
+
     def index() {
 
         def taskList = Task.list(params)
@@ -22,13 +24,12 @@ class TaskController {
         taskInstance?.usuario = User.get(session['userId'])
         taskInstance.save flush:true
 
-        if (taskInstance.hasErrors()) {
+/*        if (taskInstance.hasErrors()) {
             render "Error no nome de usuario", status: 500
             return
-        }
+        }*/
 
-        redirect(view: 'index')
-        /* [taskInstance : taskInstance]*/
+        redirect(action: 'index')
 
     }
 

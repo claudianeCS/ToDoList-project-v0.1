@@ -16,7 +16,6 @@
 			<h1>To Do List</h1>
 			<p>Escreva suas anotações e não esqueça.</p>
 		</div>
-		<p>${sessao}</p>
 		<div class="name-user">
 			<g:form controller="user" action="save">
 				<g:textField name="nome" value="${userIntance?.nome}" placeholder="Digite seu nome"/>
