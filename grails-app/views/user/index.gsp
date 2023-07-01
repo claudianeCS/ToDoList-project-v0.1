@@ -19,9 +19,7 @@
 		<div class="name-user">
 			<g:form controller="user" action="save">
 				<g:textField name="nome" value="${userIntance?.nome}" placeholder="Digite seu nome"/>
-				<g:textField name="email" value="${userIntance?.email}" placeholder="Email"/>
-				<g:passwordField name="password" value="${userIntance?.password}" placeholder="Senha"/>
-				
+
 				<g:submitButton name="entrar" value="${message(code: 'default.enviar.button', default: 'Entrar')}"/>
 			</g:form>
 		</div>

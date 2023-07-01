@@ -15,6 +15,21 @@ class TaskController {
     }
 
     @Transactional
+    def edit(Task taskInstance){
+        if (taskInstance == null){
+            notFound()
+            return
+        }
+
+        taskInstance?.usuario = User.get(session['userId'])
+        taskInstance.save flush:true
+
+        redirect(action: 'index')
+    }
+
+
+
+    @Transactional
     def save(Task taskInstance){
         if (taskInstance == null){
             notFound()
@@ -24,14 +39,18 @@ class TaskController {
         taskInstance?.usuario = User.get(session['userId'])
         taskInstance.save flush:true
 
-/*        if (taskInstance.hasErrors()) {
-            render "Error no nome de usuario", status: 500
-            return
-        }*/
-
         redirect(action: 'index')
 
     }
+
+    def delete(Long id){
+        def task = Task.get(id)
+        if (task){
+            task.delete(flush: true)
+        }
+        redirect(action: 'index')
+    }
+
 
     protected void notFound() {
         request.withFormat {
