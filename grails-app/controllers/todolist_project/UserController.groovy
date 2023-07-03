@@ -51,6 +51,7 @@ class UserController {
         def user = User.get(id)
         session['userId'] = user?.id
         session['username'] = user?.nome
+        session.setMaxInactiveInterval(1200)
     }
 
 

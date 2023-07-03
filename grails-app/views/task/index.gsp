@@ -11,6 +11,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;0,900;1,400&family=Montserrat:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="${assetPath(src: 'lista-de-controle.png')}" type="image/x-icon">
     <asset:stylesheet src="main.css"/>
     <title>To do List - Project</title>
 </head>
@@ -20,7 +21,8 @@
         <h2 class="title">
             Olá como vai,<p>${User.findById(session['userId']).nome}</p>.
         </h2>
-        <button class="exit"><i class="bi bi-x"></i> Sair</button>
+        <g:link class="exit" controller="task" action="exitAction">Sair <i class="bi bi-x"></i></g:link>
+      %{--  <button class="exit"><i class="bi bi-x"></i> Sair</button>--}%
     </section>
     <section class="create-todo">
         <h3>CRIE UMA TAREFA</h3>

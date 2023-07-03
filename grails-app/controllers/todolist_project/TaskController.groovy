@@ -62,5 +62,13 @@ class TaskController {
         }
     }
 
+    def exitAction(){
+        def user = User.get(session['userId'])
+        if (user){
+            user.delete(flush: true)
+            redirect(controller: 'user', action: 'index')
+        }
+    }
+
 
 }
