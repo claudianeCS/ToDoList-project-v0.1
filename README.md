@@ -17,8 +17,8 @@
 # Using this project:
 
 * Install grails framework and using a MariaDb database, using this schema:
-
->create or replace table user
+```
+create or replace table user
 (
     id      bigint auto_increment
         primary key,
@@ -37,3 +37,5 @@ create or replace table task
     constraint FK_ieybpna9brl1ypirh49b1640i
         foreign key (usuario_id) references user (id)
 );
+
+```
