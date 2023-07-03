@@ -16,7 +16,7 @@
 
 # Using this project:
 
-* Install grails framework and using a MariaDb database, using this schema:
+* Install grails framework and using a MariaDb database and put this schema:
 ```
 create or replace table user
 (
