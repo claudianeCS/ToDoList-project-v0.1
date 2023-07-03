@@ -1,20 +1,20 @@
-### TODO-LIST Project 
+# TODO-LIST Project 
 
-## Abouth
+### Abouth
 
  A Todo-list project for study using a Grails framework.
 
-# Technologies:
+### Technologies:
 * MariaDB 
 * Grails - 2.5.6
 
-# Actions
+### Actions
 * Create 
 * Read
 * Update 
 * Delete
 
-# Using this project:
+### Using this project:
 
 * Install grails framework and using a MariaDb database and put this schema:
 ```
