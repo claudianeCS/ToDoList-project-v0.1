@@ -2,7 +2,7 @@
 
 ### Abouth
 
- A Todo-list project for study using a Grails framework.
+ A Todo-list project for study using a Grails framework and Spring Security Plugin.
 
 ### Technologies:
 * MariaDB 
