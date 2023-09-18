@@ -115,3 +115,39 @@ log4j.main = {
            'org.hibernate',
            'net.sf.ehcache.hibernate'
 }
+
+
+// Added by the Spring Security Core plugin:
+grails.plugin.springsecurity.userLookup.userDomainClassName = 'todolist_project.sec.Usuario'
+grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'todolist_project.sec.UsuarioPermissao'
+grails.plugin.springsecurity.authority.className = 'todolist_project.sec.Permissao'
+
+grails.plugin.springsecurity.auth.loginFormUrl = '/toList/logar'
+grails.plugin.springsecurity.logout.afterLogoutUrl = '/toList/logout'
+grails.plugin.springsecurity.successHandler.defaultTargetUrl = '/toList/admin'
+grails.plugin.springsecurity.failureHandler.defaultFailureUrl = '/toList/erro'
+grails.plugin.springsecurity.successHandler.alwaysUseDefault = false
+grails.plugin.springsecurity.dao.hideUserNotFoundExceptions = false
+grails.plugin.springsecurity.adh.errorPage="/j_spring_security_logout"
+grails.plugin.springsecurity.password.algorithm = 'SHA-256'
+
+grails.plugin.springsecurity.securityConfigType = "InterceptUrlMap"
+
+grails.plugin.springsecurity.interceptUrlMap = [
+        '/task/index':         ['ROLE_ADMIN'],
+        '/**':               ['IS_AUTHENTICATED_ANONYMOUSLY']
+]
+
+
+
+grails.plugin.springsecurity.controllerAnnotations.staticRules = [
+	'/':                ['permitAll'],
+	'/index':           ['permitAll'],
+	'/index.gsp':       ['permitAll'],
+	'/assets/**':       ['permitAll'],
+	'/**/js/**':        ['permitAll'],
+	'/**/css/**':       ['permitAll'],
+	'/**/images/**':    ['permitAll'],
+	'/**/favicon.ico':  ['permitAll']
+]
+

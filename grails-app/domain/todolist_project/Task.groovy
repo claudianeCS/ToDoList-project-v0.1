@@ -1,8 +1,10 @@
 package todolist_project
 
+import todolist_project.sec.Usuario
+
 class Task {
 
-    User usuario
+    Usuario usuario
     String tarefa
     String categoria
 

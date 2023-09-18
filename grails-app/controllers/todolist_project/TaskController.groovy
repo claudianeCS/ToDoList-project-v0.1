@@ -1,6 +1,7 @@
 package todolist_project
 
 import grails.transaction.Transactional
+import todolist_project.sec.Usuario
 
 @Transactional(readOnly = true)
 class TaskController {
@@ -21,7 +22,7 @@ class TaskController {
             return
         }
 
-        taskInstance?.usuario = User.get(session['userId'])
+        taskInstance?.usuario = Usuario.get(session['userId'])
         taskInstance.save flush:true
 
         redirect(action: 'index')
@@ -36,7 +37,7 @@ class TaskController {
             return
         }
 
-        taskInstance?.usuario = User.get(session['userId'])
+        taskInstance?.usuario = Usuario.get(session['userId'])
         taskInstance.save flush:true
 
         redirect(action: 'index')
@@ -59,14 +60,6 @@ class TaskController {
                 redirect action: "index", method: "GET"
             }
             '*'{ render status: NOT_FOUND }
-        }
-    }
-
-    def exitAction(){
-        def user = User.get(session['userId'])
-        if (user){
-            user.delete(flush: true)
-            redirect(controller: 'user', action: 'index')
         }
     }
 

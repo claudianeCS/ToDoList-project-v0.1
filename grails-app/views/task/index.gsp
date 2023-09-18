@@ -19,9 +19,9 @@
 <main class="app">
     <section class="greeting">
         <h2 class="title">
-            Olá como vai,<p>${User.findById(session['userId']).nome}</p>.
+            Olá como vai,<sec:ifLoggedIn><p>${usuario}</p></sec:ifLoggedIn>.
         </h2>
-        <g:link class="exit" controller="task" action="exitAction">Sair <i class="bi bi-x"></i></g:link>
+        <g:link class="exit" controller="toList" action="logout">Sair <i class="bi bi-x"></i></g:link>
       %{--  <button class="exit"><i class="bi bi-x"></i> Sair</button>--}%
     </section>
     <section class="create-todo">
