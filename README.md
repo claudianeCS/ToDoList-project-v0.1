@@ -7,6 +7,7 @@
 ### Technologies:
 * MariaDB 
 * Grails - 2.5.6
+* Spring Security 2.0.0
 
 ### Actions
 * Create 
